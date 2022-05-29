@@ -36,18 +36,21 @@ def go ():
                 print("Debe continuar con un 1")
                 val=False
             else:
-                lista.pop(0)
-                lista.pop(1)
-                lista.pop(2)
-                for i in lista:
-                    nueva.append(i)
-                for i in nueva:
-                    print(nueva)
-                    if(i=="0"):
-                        print(i)
-                        val=True
-                    else:
-                        val=False
+                if(len(lista)>3):
+                    lista.pop(0)
+                    lista.pop(1)
+                    """lista.pop(2)"""
+                    for i in lista:
+                        nueva.append(i)
+                    for i in nueva:
+                        print(nueva)
+                        if(i=="0"):
+                            print(i)
+                            val=True
+                        else:
+                            val=False
+                else:
+                    val=True
     if(val==True):
         print("Tu cadena es correcta")
         res.config(text="Cadena Valida")
@@ -58,7 +61,7 @@ def go ():
                 
 root=Tk()
 frame = Frame()
-frame = Frame(root,width=500,height=120)
+frame = Frame(root,width=500,height=120,bg= "coral")
 frame.pack(side="top", anchor="e")
 frame.pack(fill = "y" , expand = 1)
 frame.pack(fill = "both", expand = 1)
@@ -67,16 +70,19 @@ nueva=[]
 N1val=StringVar()
 root.iconbitmap('b.ico')
 
-
+frame2 = Frame(root, bg= "cyan")
+frame2.pack(side="top", anchor="e")
+frame2.pack(fill = "y" , expand = 1)
+frame2.pack(fill = "both", expand = 1)
 root.title("Automata")
 root.config()
-inst=Label(root,text="Ingresa el valor que deseas que sea validado").pack()
-txt=Entry(root, justify=CENTER, textvariable=N1val)
+inst=Label(frame2,text="Ingresa el valor que deseas que sea validado").pack()
+txt=Entry(frame2, justify=CENTER, textvariable=N1val)
 txt.pack()
-btn1=Button(root,text="Validar", command=go, bg= "cyan").pack()
-btn1=Button(root,text="Limpiar", command=clean, bg= "coral").pack()
+btn1=Button(frame2,text="Validar", command=go, bg= "cyan").pack()
+btn1=Button(frame2,text="Limpiar", command=clean, bg= "coral").pack()
 
-frame = Frame(root,width=500,height=120)
+frame = Frame(root,width=500,height=120,bg= "coral")
 frame.pack(side="top", anchor="e")
 frame.pack(fill = "y" , expand = 1)
 frame.pack(fill = "both", expand = 1)
