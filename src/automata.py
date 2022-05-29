@@ -8,7 +8,7 @@ This is a temporary script file.
 from cgitb import text
 from tkinter import *
 
-
+"""Clase para limpiar los valores"""
 def clean():
     lista.clear()
     nueva.clear()
@@ -17,7 +17,7 @@ def clean():
     txt.delete("0","end")
 
 
-
+"""Clase para el automata, aqui se hace el analizis de la cadena"""
 def go ():
     val=True
     n2=(N1val.get())
@@ -50,7 +50,7 @@ def go ():
                         else:
                             val=False
                 else:
-                    val=True
+                    val=False
     if(val==True):
         print("Tu cadena es correcta")
         res.config(text="Cadena Valida")
@@ -58,7 +58,7 @@ def go ():
         print("No esta bien tu cadena")
         res.config(text="Cadena Invalida")
                 
-                
+"""Es la parte del diseño de la interfaz y todos los componentes"""                
 root=Tk()
 frame = Frame()
 frame = Frame(root,width=500,height=120,bg= "coral")
